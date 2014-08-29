@@ -65,8 +65,21 @@ touch /var/log/uwsgi/$p_name.log
 
 echo "Try to start uwsgi..."
 uwsgi --ini $current_path/$uwsgi_name
-# todo check if start properly
+if [ $? = 0 ]
+then
+	echo "uwsgi start successfully"
+else
+	echo "uwsgi did not start, error code is $?"
+	echo "error msg stored in /var/log/uwsgi/$p_name.log"
+	exit $?
+
 
 echo "Try to restart nginx..."
 service nginx restart
-# todo check if start properly
+if [ $? = 0 ]
+then
+	echo "nginx start successfully"
+else
+	echo "nginx did not start, error code is $?"
+	echo "error msg stored in nginx log file(maybe /var/log/nginx/error.log)"
+	exit $?
