@@ -58,7 +58,7 @@ echo -n "Please input your nginx conf file name:"
 read conf_name
 ln -s ${current_path}${sep}${conf_name} /etc/nginx/sites-enabled/
 
-echo -n "Please input your uwsgi file name:"
+echo -n "Please input your uwsgi(*.ini) file name:"
 read uwsgi_name
 mkdir /var/log/uwsgi/
 touch /var/log/uwsgi/$p_name.log
