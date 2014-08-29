@@ -1,34 +1,34 @@
 #!/bin/sh
 
 # install nginx & git & some others
-apt-get install -y nginx
-apt-get install -y git
-apt-get install -y build-essential
-apt-get install -y zliblg-dev
-apt-get install -y libsqlite3-dev
-apt-get install -y libreadline6-dev
-apt-get install -y libgdbm-dev
-apt-get install -y libbz2-dev
-apt-get install -y tk-dev
-apt-get install -y vim
+sudo apt-get install -y nginx
+sudo apt-get install -y git
+sudo apt-get install -y build-essential
+sudo apt-get install -y zliblg-dev
+sudo apt-get install -y libsqlite3-dev
+sudo apt-get install -y libreadline6-dev
+sudo apt-get install -y libgdbm-dev
+sudo apt-get install -y libbz2-dev
+sudo apt-get install -y tk-dev
+sudo apt-get install -y vim
 
 # install some packages which may needed before pip 
-apt-get install -y python-dev
-apt-get install -y libevent-dev
+sudo apt-get install -y python-dev
+sudo apt-get install -y libevent-dev
 
 # install pip & django & uwsgi
-apt-get install -y python-pip
+sudo apt-get install -y python-pip
 echo -n "Please input your Django version:"
 read d_version
-pip install Django==$d_version
-pip install uwsgi
+sudo apt-get Django==$d_version
+sudo apt-get uwsgi
 # uwsgi may need south to work...
-pip install South
+sudo apt-get South
 
 # install pip package
 echo -n "Please input your pip package, separated by black space:"
 read pip_package
-pip install $pip_package
+sudo apt-get $pip_package
 
 
 # check git or not
