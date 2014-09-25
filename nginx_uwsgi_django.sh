@@ -73,7 +73,7 @@ else
 fi
 
 current_path=`pwd`
-sep = "/"
+sep="/"
 echo -n "Please input your nginx conf file name:"
 read conf_name
 ln -s ${current_path}${sep}${p_name}${sep}${conf_name} /etc/nginx/sites-enabled/
