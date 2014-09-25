@@ -72,11 +72,11 @@ else
     fi
 fi
 
-current_path = `pwd`
+current_path=`pwd`
 sep = "/"
 echo -n "Please input your nginx conf file name:"
 read conf_name
-ln -s ${current_path}${sep}${conf_name} /etc/nginx/sites-enabled/
+ln -s ${current_path}${sep}${p_name}${sep}${conf_name} /etc/nginx/sites-enabled/
 
 echo -n "Please input your uwsgi(*.ini) file name:"
 read uwsgi_name
@@ -84,7 +84,7 @@ mkdir /var/log/uwsgi/
 touch /var/log/uwsgi/$p_name.log
 
 echo "Try to start uwsgi..."
-uwsgi --ini $current_path/$uwsgi_name
+uwsgi --ini ${current_path}${sep}${p_name}/$uwsgi_name
 if [ $? = 0 ]
 then
 	echo "uwsgi start successfully"
