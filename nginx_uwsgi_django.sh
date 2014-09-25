@@ -21,14 +21,14 @@ sudo apt-get install -y python-pip
 echo -n "Please input your Django version:"
 read d_version
 sudo apt-get Django==$d_version
-sudo apt-get uwsgi
+sudo apt-get install -y uwsgi
 # uwsgi may need south to work...
-sudo apt-get South
+sudo apt-get install -y South
 
 # install pip package
 echo -n "Please input your pip package, separated by black space:"
 read pip_package
-sudo apt-get $pip_package
+sudo pip install $pip_package
 
 
 # check git or not
@@ -38,7 +38,15 @@ if [ $git_or_not = "yes" ]
 then
 	echo -n "Please input the directory where you'd like to put your project:"
 	read project_parent_directory
-	cd $project_parent_directory
+	# check if directory exists
+	if [ -d "$DIRECTORY" ]; then
+        cd $project_parent_directory
+	else
+	    # mkdir
+		mkdir -p $project_parent_directory
+		cd $project_parent_directory
+    fi
+	
 	echo -n "Please input your Repository url:"
 	read url
 	git clone $url
