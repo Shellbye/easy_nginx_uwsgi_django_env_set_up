@@ -11,6 +11,7 @@ sudo apt-get install -y libgdbm-dev
 sudo apt-get install -y libbz2-dev
 sudo apt-get install -y tk-dev
 sudo apt-get install -y vim
+sudo apt-get install -y uwsgi-plugin-python
 
 # install some packages which may needed before pip 
 sudo apt-get install -y python-dev
