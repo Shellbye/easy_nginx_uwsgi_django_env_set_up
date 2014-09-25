@@ -39,7 +39,7 @@ then
 	echo -n "Please input the directory where you'd like to put your project:"
 	read project_parent_directory
 	# check if directory exists
-	if [ -d "$DIRECTORY" ]; then
+	if [ -d $project_parent_directory ]; then
         cd $project_parent_directory
 	else
 	    # mkdir
@@ -53,11 +53,23 @@ then
 	# todo auto detect project name
 	echo -n "Please input your project name:"
 	read p_name
-	cd $p_name
+	if [ -d $p_name ]; then
+        cd $p_name
+	else
+	    # mkdir
+		mkdir -p $p_name
+		cd $p_name
+    fi
 else
 	echo -n "Please input your project directory:"
 	read project_directory
-	cd $project_directory
+	if [ -d $project_directory ]; then
+        cd $project_directory
+	else
+	    # mkdir
+		mkdir -p $project_directory
+		cd $project_directory
+    fi
 fi
 
 current_path = `pwd`
@@ -80,7 +92,7 @@ else
 	echo "uwsgi did not start, error code is $?"
 	echo "error msg stored in /var/log/uwsgi/$p_name.log"
 	exit $?
-
+fi
 
 echo "Try to restart nginx..."
 service nginx restart
