@@ -20,10 +20,10 @@ sudo apt-get install -y libevent-dev
 sudo apt-get install -y python-pip
 echo -n "Please input your Django version:"
 read d_version
-sudo apt-get Django==$d_version
-sudo apt-get install -y uwsgi
+sudo pip Django==$d_version
+sudo pip install uwsgi
 # uwsgi may need south to work...
-sudo apt-get install -y South
+sudo pip install South
 
 # install pip package
 echo -n "Please input your pip package, separated by black space:"
@@ -76,6 +76,7 @@ current_path=`pwd`
 sep="/"
 echo -n "Please input your nginx conf file name:"
 read conf_name
+# rm old ones
 ln -s ${current_path}${sep}${p_name}${sep}${conf_name} /etc/nginx/sites-enabled/
 
 echo -n "Please input your uwsgi(*.ini) file name:"
@@ -84,7 +85,7 @@ mkdir /var/log/uwsgi/
 touch /var/log/uwsgi/$p_name.log
 
 echo "Try to start uwsgi..."
-uwsgi --ini ${current_path}${sep}${p_name}/$uwsgi_name
+uwsgi --ini ${current_path}${sep}/$uwsgi_name
 if [ $? = 0 ]
 then
 	echo "uwsgi start successfully"
