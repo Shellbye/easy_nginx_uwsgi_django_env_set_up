@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # install nginx & git & some others
+sudo apt-get install -y update
 sudo apt-get install -y nginx
 sudo apt-get install -y git
 sudo apt-get install -y build-essential
@@ -12,6 +13,8 @@ sudo apt-get install -y libbz2-dev
 sudo apt-get install -y tk-dev
 sudo apt-get install -y vim
 sudo apt-get install -y uwsgi-plugin-python
+sudo apt-get install -y mysql-server
+sudo apt-get install -y python-mysqldb
 
 # install some packages which may needed before pip 
 sudo apt-get install -y python-dev
