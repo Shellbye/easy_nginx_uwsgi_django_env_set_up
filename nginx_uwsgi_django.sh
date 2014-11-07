@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # install nginx & git & some others
-sudo apt-get install -y update
+sudo apt-get update
 sudo apt-get install -y nginx
 sudo apt-get install -y git
 sudo apt-get install -y build-essential
