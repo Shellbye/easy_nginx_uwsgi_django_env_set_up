@@ -15,6 +15,8 @@ sudo apt-get install -y vim
 sudo apt-get install -y uwsgi-plugin-python
 sudo apt-get install -y mysql-server
 sudo apt-get install -y python-mysqldb
+sudo apt-get build-dep python-imaging
+sudo apt-get install -y libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
 
 # install some packages which may needed before pip 
 sudo apt-get install -y python-dev
